@@ -7,197 +7,142 @@
 
 body{
 
-    background:#0f172a;
-
-    color:white;
-
-    display:flex;
-
-    height:100vh;
-
-}
-
-/* =======================
-   Sidebar
-======================= */
-
-.sidebar{
-
-    width:260px;
-
-    background:#111827;
-
-    padding:30px 20px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:15px;
-
-    border-right:2px solid #1e293b;
-
-}
-
-.sidebar h1{
-
-    text-align:center;
-
-    margin-bottom:25px;
-
-    color:#FFD93D;
-
-}
-
-.sidebar button{
-
-    border:none;
-
-    background:#1e293b;
-
-    color:white;
-
-    padding:15px;
-
-    border-radius:12px;
-
-    cursor:pointer;
-
-    font-size:16px;
-
-    transition:.25s;
-
-    text-align:left;
-
-}
-
-.sidebar button:hover{
-
-    background:#3b82f6;
-
-    transform:translateX(6px);
-
-}
-
-/* =======================
-   Conteúdo
-======================= */
-
-.content{
-
-    flex:1;
-
-    display:flex;
-
-    flex-direction:column;
-
-}
-
-/* =======================
-   Header
-======================= */
-
-header{
-
-    height:80px;
-
-    background:#111827;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:20px 30px;
-
-    border-bottom:2px solid #1e293b;
-
-}
-
-header h2{
-
-    color:#FFD93D;
-
-}
-
-header input{
-
+    background:#1b1d26;
     color:white;
 
 }
 
-/* =======================
-   Main
-======================= */
+.top{
 
-main{
-
-    flex:1;
-
-    padding:40px;
-
-    overflow:auto;
-
-}
-
-/* =======================
-   Cards
-======================= */
-
-.card{
-
-    background:#1e293b;
-
-    border-radius:18px;
+    background:#20232d;
 
     padding:25px;
 
-    margin-bottom:20px;
+    text-align:center;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.35);
+
+}
+
+.top h1{
+
+    font-size:52px;
+
+    color:#FFD93D;
+
+}
+
+.menu{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+
+    padding:20px;
+
+}
+
+.menu button{
+
+    background:#2b3040;
+
+    color:white;
+
+    border:none;
+
+    border-radius:18px;
+
+    height:90px;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    box-shadow:0 6px 15px rgba(0,0,0,.25);
+
+}
+
+.menu button:hover{
+
+    background:#3b82f6;
+
+    transform:translateY(-4px);
+
+}
+
+.card{
+
+    margin:20px;
+
+    padding:25px;
+
+    background:#2b3040;
+
+    border-radius:25px;
 
     box-shadow:0 8px 25px rgba(0,0,0,.35);
 
 }
 
-.card h2{
+input[type=file]{
 
-    margin-bottom:15px;
+    width:100%;
 
-    color:#FFD93D;
+    padding:14px;
+
+    margin-bottom:20px;
+
+    border-radius:15px;
+
+    background:#1b1d26;
+
+    color:white;
+
+    border:none;
 
 }
 
-.card p{
+#status h2{
 
-    margin:8px 0;
+    color:#FFD93D;
+
+    margin-bottom:15px;
+
+}
+
+#status p{
+
+    margin:10px 0;
 
     font-size:18px;
 
 }
 
-/* =======================
-   Upload
-======================= */
+.info{
 
-input[type=file]{
+    margin-top:20px;
 
-    background:#1e293b;
+    padding-top:20px;
 
-    color:white;
-
-    padding:10px;
-
-    border-radius:10px;
+    border-top:2px solid rgba(255,255,255,.15);
 
 }
 
-/* =======================
-   Scroll
-======================= */
+.info p{
+
+    margin:8px 0;
+
+}
 
 ::-webkit-scrollbar{
 
-    width:10px;
+    width:8px;
 
 }
 
@@ -209,36 +154,14 @@ input[type=file]{
 
 }
 
-/* =======================
-   Mobile
-======================= */
-
-@media(max-width:850px){
+@media(min-width:900px){
 
     body{
 
-        flex-direction:column;
+        max-width:700px;
+
+        margin:auto;
 
     }
 
-    .sidebar{
-
-        width:100%;
-
-        border-right:none;
-
-        border-bottom:2px solid #1e293b;
-
-    }
-
-    header{
-
-        flex-direction:column;
-
-        height:auto;
-
-        gap:15px;
-
-    }
-
-}
+        }

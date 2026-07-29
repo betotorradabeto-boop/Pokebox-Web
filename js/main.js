@@ -5,49 +5,39 @@ const input = document.getElementById("saveInput");
 const status = document.getElementById("status");
 
 input.addEventListener("change", async (event) => {
-
     const file = event.target.files[0];
 
-    if (!file)
+    if (!file) {
         return;
+    }
 
     try {
-
         status.textContent = "Carregando save...";
 
         const buffer = await file.arrayBuffer();
 
         const save = new SaveFile(buffer);
-
         const gba = new GbaSave(save);
 
-        gba.load();
+        if (!gba.load()) {
+            throw new Error("Falha ao carregar o GbaSave.");
+        }
 
-        status.textContent =
-            `✅ Save carregado! ${save.getSize()} bytes`;
+        status.textContent = `✅ Save carregado! ${save.getSize()} bytes`;
 
         console.clear();
-
         console.log("========== Pokebox ==========");
         console.log("Tamanho:", save.getSize());
         console.log("Sections:", gba.getSectionCount());
+        console.log("Slot ativo:", gba.getActiveSlot() === 0 ? "A" : "B");
 
-        gba.getSections().forEach(section => {
-
+        gba.getSections().forEach((section) => {
             console.log(
-                `Section ${section.id} -> Offset 0x${section.offset.toString(16).toUpperCase()}`
+                `Section ${section.index} | offset=0x${section.offset.toString(16).toUpperCase()} | id=${section.id} | saveIndex=${section.saveIndex} | checksum=0x${section.checksum.toString(16).toUpperCase()} | signature=0x${section.signature.toString(16).toUpperCase()}`
             );
-
         });
-
-    }
-    catch (e) {
-
+    } catch (e) {
         console.error(e);
-
-        status.textContent =
-            "❌ Erro ao carregar o save.";
-
+        status.textContent = "❌ Erro ao carregar o save.";
     }
-
 });

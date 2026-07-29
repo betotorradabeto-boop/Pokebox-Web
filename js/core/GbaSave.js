@@ -37,7 +37,13 @@ export default class GbaSave {
 
             const section = new Section(i, i * 0x1000);
 
-            section.load(this.reader);
+            if (!section.load(this.reader)) {
+                return false;
+            }
+
+            if (!section.isValidSignature()) {
+                return false;
+            }
 
             this.sections.push(section);
 
@@ -49,30 +55,24 @@ export default class GbaSave {
         const saveIndexA = this.slotA[13]?.saveIndex ?? 0;
         const saveIndexB = this.slotB[13]?.saveIndex ?? 0;
 
-        this.activeSlot = saveIndexA >= saveIndexB ? 0 : 1;
+        // Em empate, o Slot B é o mais recente.
+        this.activeSlot = saveIndexA > saveIndexB ? 0 : 1;
 
         this.loaded = true;
-
         return true;
 
     }
 
     isLoaded() {
-
         return this.loaded;
-
     }
 
     getReader() {
-
         return this.reader;
-
     }
 
     getSections() {
-
         return this.sections;
-
     }
 
     getSection(id) {
@@ -80,11 +80,9 @@ export default class GbaSave {
         const sections = this.getActiveSlotSections();
 
         for (const section of sections) {
-
             if (section.id === id) {
                 return section;
             }
-
         }
 
         return null;
@@ -92,35 +90,31 @@ export default class GbaSave {
     }
 
     getSectionCount() {
-
         return this.sections.length;
-
     }
 
     getSlotA() {
-
         return this.slotA;
-
     }
 
     getSlotB() {
-
         return this.slotB;
-
     }
 
     getActiveSlot() {
-
         return this.activeSlot;
-
     }
 
     getActiveSlotSections() {
+        if (this.activeSlot === 0) {
+            return this.slotA;
+        }
 
-        return this.activeSlot === 0
-            ? this.slotA
-            : this.slotB;
+        if (this.activeSlot === 1) {
+            return this.slotB;
+        }
 
+        return [];
     }
 
-        }
+}

@@ -16,7 +16,7 @@ export default class TrainerView {
 
             <p><strong>Dinheiro:</strong> ₽ ${trainer.getMoney()}</p>
 
-            <p><strong>Tempo:</strong> ${trainer.getPlayTime()}</p>
+            <p><strong>Tempo:</strong> ${trainer.getPlayTimeString()}</p>
 
         `;
 

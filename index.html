@@ -5,10 +5,9 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Pokebox</title>
+    <title>📦 Pokebox</title>
 
     <link rel="stylesheet" href="css/style.css">
 
@@ -16,52 +15,60 @@
 
 <body>
 
-    <!-- Cabeçalho -->
-
-    <div class="top">
+    <header>
 
         <h1>📦 Pokebox</h1>
 
-    </div>
+        <p>Pokémon Save Editor</p>
 
-    <!-- Menu -->
+    </header>
 
-    <div class="menu">
+    <section class="menu">
 
         <button id="btnTrainer">
-            👤<br>Trainer
+            👤
+            <span>Trainer</span>
         </button>
 
         <button id="btnMoney">
-            💰<br>Money
+            💰
+            <span>Money</span>
         </button>
 
         <button id="btnBag">
-            🎒<br>Bag
+            🎒
+            <span>Bag</span>
         </button>
 
         <button id="btnParty">
-            🐉<br>Party
+            🐉
+            <span>Party</span>
         </button>
 
         <button id="btnBoxes">
-            📦<br>Boxes
+            📦
+            <span>Boxes</span>
         </button>
 
         <button id="btnVault">
-            ☁️<br>Vault
+            ☁️
+            <span>Vault</span>
         </button>
 
-    </div>
+    </section>
 
-    <!-- Conteúdo -->
+    <main class="card">
 
-    <div class="card">
+        <label class="upload">
 
-        <input
-            type="file"
-            id="saveInput"
-            accept=".sav">
+            📂 Selecionar Save
+
+            <input
+                type="file"
+                id="saveInput"
+                accept=".sav">
+
+        </label>
 
         <div id="status">
 
@@ -75,10 +82,11 @@
 
         </div>
 
-    </div>
+    </main>
 
-    <script type="module"
-            src="js/main.js">
+    <script
+        type="module"
+        src="js/main.js">
     </script>
 
 </body>

@@ -1,6 +1,6 @@
-import SaveFile from "./SaveFile.js";
-import GbaSave from "./GbaSave.js";
-import TrainerInfo from "./TrainerInfo.js";
+import SaveFile from "./core/SaveFile.js";
+import GbaSave from "./core/GbaSave.js";
+import TrainerInfo from "./models/TrainerInfo.js";
 
 const input = document.getElementById("saveInput");
 const status = document.getElementById("status");
@@ -61,11 +61,8 @@ input.addEventListener("change", async (event) => {
         console.log("========== Pokebox ==========");
 
         console.log("Arquivo:", file.name);
-
         console.log("Tamanho:", save.getSize());
-
         console.log("Sections:", gba.getSectionCount());
-
         console.log("Slot ativo:", gba.getActiveSlot());
 
     }

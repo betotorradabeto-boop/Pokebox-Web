@@ -26,11 +26,22 @@ input.addEventListener("change", async (event) => {
         status.textContent =
             `✅ Save carregado! ${save.getSize()} bytes`;
 
-        console.log("========== Pokebox ==========");
-        console.log("Save:", save);
-        console.log("GbaSave:", gba);
+        console.clear();
 
-    } catch (e) {
+        console.log("========== Pokebox ==========");
+        console.log("Tamanho:", save.getSize());
+        console.log("Sections:", gba.getSectionCount());
+
+        gba.getSections().forEach(section => {
+
+            console.log(
+                `Section ${section.id} -> Offset 0x${section.offset.toString(16).toUpperCase()}`
+            );
+
+        });
+
+    }
+    catch (e) {
 
         console.error(e);
 

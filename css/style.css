@@ -16,11 +16,28 @@ body {
   padding: 12px 20px;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Alinhado à esquerda */
+  justify-content: space-between; /* Título na esquerda, botão na direita */
 }
 
 .topbar-title {
   color: #FFFFFF;            /* Texto branco */
   font-size: 1.2rem;
   font-weight: bold;
+}
+
+/* Estilo do Botão de Menu */
+.menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* Espaço entre os traços */
+}
+
+.bar {
+  width: 22px;
+  height: 2px;
+  background-color: #FFFFFF; /* Cor branca para os traços */
+  border-radius: 2px;
 }

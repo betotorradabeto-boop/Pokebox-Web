@@ -10,34 +10,46 @@ body{
 
     min-height:100vh;
 
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
     background:linear-gradient(
 
         180deg,
 
-        #2b2f38 0%,
+        #2c2f36 0%,
 
-        #1a1d25 50%,
+        #1b1d22 45%,
 
-        #090909 100%
+        #0f1013 100%
 
     );
 
     font-family:Arial, Helvetica, sans-serif;
 
+    color:white;
+
 }
 
-h1{
+header{
 
-    color:white;
+    text-align:center;
+
+    padding:60px 20px;
+
+}
+
+header h1{
 
     font-size:56px;
 
     font-weight:bold;
+
+    margin-bottom:10px;
+
+}
+
+header p{
+
+    font-size:22px;
+
+    color:#b8bcc6;
 
 }

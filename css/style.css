@@ -5,13 +5,13 @@
 }
 
 body {
-  background-color: #4A4A4A;
+  background-color: #1E1E1E; /* Preto levemente claro */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   padding: 12px;
 }
 
 .topbar {
-  background-color: #9E9E9E; /* Cinza claro */
+  background-color: #333333; /* Cinza escuro */
   border-radius: 12px;       /* Borda arredondada */
   padding: 12px 20px;
   display: flex;

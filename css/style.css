@@ -10,11 +10,8 @@
 body{
 
     background:#141824;
-
     color:white;
-
     min-height:100vh;
-
     padding:25px;
 
 }
@@ -22,7 +19,6 @@ body{
 header{
 
     text-align:center;
-
     margin-bottom:30px;
 
 }
@@ -30,7 +26,6 @@ header{
 header h1{
 
     color:#FFD93D;
-
     font-size:42px;
 
 }
@@ -38,48 +33,73 @@ header h1{
 header p{
 
     color:#bfc7d5;
-
     margin-top:8px;
 
 }
 
+/*==========================
+MENU
+==========================*/
+
 .menu{
 
     display:grid;
-
     grid-template-columns:repeat(2,1fr);
-
     gap:15px;
-
     margin-bottom:25px;
 
 }
 
 .menu button{
 
+    appearance:none;
+    -webkit-appearance:none;
+
     background:#21283a;
-
-    border:none;
-
-    border-radius:20px;
 
     color:white;
 
-    padding:20px;
+    border:none;
 
-    cursor:pointer;
+    border-radius:18px;
 
-    transition:.2s;
+    padding:18px 12px;
+
+    min-height:110px;
 
     display:flex;
 
     flex-direction:column;
 
-    align-items:center;
-
     justify-content:center;
 
+    align-items:center;
+
     gap:10px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.35);
+
+}
+
+.menu button:hover{
+
+    background:#3478f6;
+
+    transform:translateY(-4px);
+
+}
+
+.menu button:active{
+
+    transform:scale(.96);
+
+}
+
+.menu button{
 
     font-size:34px;
 
@@ -91,15 +111,13 @@ header p{
 
     font-weight:bold;
 
-}
-
-.menu button:hover{
-
-    background:#3478f6;
-
-    transform:translateY(-4px);
+    color:#fff;
 
 }
+
+/*==========================
+CARD
+==========================*/
 
 .card{
 
@@ -118,6 +136,8 @@ header p{
     display:block;
 
     background:#3478f6;
+
+    color:white;
 
     padding:15px;
 
@@ -155,12 +175,15 @@ header p{
 
 }
 
+/*==========================
+DESKTOP
+==========================*/
+
 @media(min-width:900px){
 
     body{
 
         width:700px;
-
         margin:auto;
 
     }

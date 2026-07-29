@@ -1,36 +1,86 @@
-<div class="top">
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-    <h1>📦 Pokebox</h1>
+<head>
 
-</div>
+    <meta charset="UTF-8">
 
-<div class="menu">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <button>👤<br>Trainer</button>
+    <title>Pokebox</title>
 
-    <button>💰<br>Money</button>
+    <link rel="stylesheet" href="css/style.css">
 
-    <button>🎒<br>Bag</button>
+</head>
 
-    <button>🐉<br>Party</button>
+<body>
 
-    <button>📦<br>Boxes</button>
+    <!-- Cabeçalho -->
 
-    <button>☁️<br>Vault</button>
+    <div class="top">
 
-</div>
-
-<div class="card">
-
-    <input
-        type="file"
-        id="saveInput"
-        accept=".sav">
-
-    <div id="status">
-
-        Nenhum save carregado.
+        <h1>📦 Pokebox</h1>
 
     </div>
 
-</div>
+    <!-- Menu -->
+
+    <div class="menu">
+
+        <button id="btnTrainer">
+            👤<br>Trainer
+        </button>
+
+        <button id="btnMoney">
+            💰<br>Money
+        </button>
+
+        <button id="btnBag">
+            🎒<br>Bag
+        </button>
+
+        <button id="btnParty">
+            🐉<br>Party
+        </button>
+
+        <button id="btnBoxes">
+            📦<br>Boxes
+        </button>
+
+        <button id="btnVault">
+            ☁️<br>Vault
+        </button>
+
+    </div>
+
+    <!-- Conteúdo -->
+
+    <div class="card">
+
+        <input
+            type="file"
+            id="saveInput"
+            accept=".sav">
+
+        <div id="status">
+
+            <h2>Bem-vindo! 👋</h2>
+
+            <p>
+
+                Selecione um save para começar.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <script type="module"
+            src="js/main.js">
+    </script>
+
+</body>
+
+</html>

@@ -2,33 +2,86 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
     <title>Pokebox</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"
+        href="css/style.css">
+
 </head>
 
 <body>
 
-    <div class="container">
+<div class="sidebar">
 
-        <h1>Pokebox</h1>
+    <h1>📦 Pokebox</h1>
 
-        <p>Pokémon Save Editor</p>
+    <button id="btnTrainer">
+        👤 Trainer
+    </button>
+
+    <button id="btnMoney">
+        💰 Money
+    </button>
+
+    <button id="btnBag">
+        🎒 Bag
+    </button>
+
+    <button id="btnParty">
+        🐉 Party
+    </button>
+
+    <button id="btnBoxes">
+        📦 Boxes
+    </button>
+
+    <button id="btnVault">
+        ☁️ Vault
+    </button>
+
+</div>
+
+<div class="content">
+
+    <header>
+
+        <h2>
+            Pokémon Save Editor
+        </h2>
 
         <input
             type="file"
             id="saveInput"
             accept=".sav">
 
-        <div id="status">
-            Nenhum save carregado.
-        </div>
+    </header>
 
-    </div>
+    <main id="status">
 
-    <script type="module" src="js/main.js"></script>
+        <h2>
+            Bem-vindo!
+        </h2>
+
+        <p>
+
+            Selecione um save para começar.
+
+        </p>
+
+    </main>
+
+</div>
+
+<script
+type="module"
+src="js/main.js">
+</script>
 
 </body>
 

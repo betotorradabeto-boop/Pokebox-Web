@@ -1,31 +1,49 @@
 export default class BinaryReader {
+
     constructor(buffer) {
+
+        this.buffer = buffer;
         this.data = new Uint8Array(buffer);
         this.offset = 0;
+
     }
 
-    seek(pos) {
-        this.offset = pos;
+    seek(position) {
+
+        this.offset = position;
+
     }
 
     skip(bytes) {
+
         this.offset += bytes;
+
     }
 
+    // ==========================
+    // LEITURA
+    // ==========================
+
     readU8() {
+
         return this.data[this.offset++];
+
     }
 
     readU16() {
+
         const value =
             this.data[this.offset] |
             (this.data[this.offset + 1] << 8);
 
         this.offset += 2;
+
         return value;
+
     }
 
     readU32() {
+
         const value =
             this.data[this.offset] |
             (this.data[this.offset + 1] << 8) |
@@ -33,6 +51,49 @@ export default class BinaryReader {
             (this.data[this.offset + 3] << 24);
 
         this.offset += 4;
+
         return value >>> 0;
+
     }
+
+    // ==========================
+    // ESCRITA
+    // ==========================
+
+    writeU8(value) {
+
+        this.data[this.offset++] = value & 0xFF;
+
+    }
+
+    writeU16(value) {
+
+        this.data[this.offset] = value & 0xFF;
+        this.data[this.offset + 1] = (value >> 8) & 0xFF;
+
+        this.offset += 2;
+
+    }
+
+    writeU32(value) {
+
+        this.data[this.offset] = value & 0xFF;
+        this.data[this.offset + 1] = (value >> 8) & 0xFF;
+        this.data[this.offset + 2] = (value >> 16) & 0xFF;
+        this.data[this.offset + 3] = (value >> 24) & 0xFF;
+
+        this.offset += 4;
+
+    }
+
+    // ==========================
+    // UTILIDADES
+    // ==========================
+
+    getBuffer() {
+
+        return this.buffer;
+
+    }
+
 }

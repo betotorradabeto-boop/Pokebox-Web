@@ -1,6 +1,7 @@
 import { decodeGen3String } from "../core/Gen3Text.js";
 
 export default class TrainerInfo {
+
     constructor() {
         this.name = "";
         this.trainerId = 0;
@@ -29,18 +30,18 @@ export default class TrainerInfo {
 
         const data0 = section0.data;
 
-        this.name = decodeGen3String(data0.subarray(0x0000, 0x0007), 7);
+        this.name = decodeGen3String(data0.subarray(0x0000, 0x0008), 8);
 
-        const trainerIdRaw = section0.getU32(0x000A);
-        this.trainerId = trainerIdRaw & 0xFFFF;
-        this.secretId = (trainerIdRaw >>> 16) & 0xFFFF;
+        this.trainerId = section0.getU16(0x000A);
+        this.secretId = section0.getU16(0x000C);
 
         this.playTimeHours = section0.getU16(0x000E);
         this.playTimeMinutes = section0.getByte(0x0010);
         this.playTimeSeconds = section0.getByte(0x0011);
         this.playTimeFrames = section0.getByte(0x0012);
 
-        this.securityKey = section0.getU32(0x0AF8) >>> 0;
+        // Copia da security key em FireRed/LeafGreen
+        this.securityKey = section0.getU32(0x0F20) >>> 0;
 
         this.money = 0;
         if (section1) {
@@ -82,4 +83,5 @@ export default class TrainerInfo {
     getSecurityKey() {
         return this.securityKey;
     }
-    }
+
+                }

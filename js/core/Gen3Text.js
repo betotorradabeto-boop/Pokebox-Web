@@ -37,4 +37,4 @@ export function decodeGen3String(data, maxLength) {
     }
 
     return chars.join("").trim();
-     }
+    }

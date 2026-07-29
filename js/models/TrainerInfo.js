@@ -10,6 +10,9 @@ export default class TrainerInfo {
         this.playTimeMinutes = 0;
         this.playTimeSeconds = 0;
         this.playTimeFrames = 0;
+
+        this.securityKey = 0;
+        this.money = 0;
     }
 
     load(gbaSave) {
@@ -17,22 +20,33 @@ export default class TrainerInfo {
             return false;
         }
 
-        const section = gbaSave.getSection(0);
+        const section0 = gbaSave.getSection(0);
+        const section1 = gbaSave.getSection(1);
 
-        if (!section) {
+        if (!section0) {
             return false;
         }
 
-        const data = section.data;
+        const data0 = section0.data;
 
-        this.name = decodeGen3String(data, 8);
-        this.trainerId = section.getU16(0x0A);
-        this.secretId = section.getU16(0x0C);
+        this.name = decodeGen3String(data0.subarray(0x0000, 0x0007), 7);
 
-        this.playTimeHours = section.getU16(0x0E);
-        this.playTimeMinutes = section.getByte(0x10);
-        this.playTimeSeconds = section.getByte(0x11);
-        this.playTimeFrames = section.getByte(0x12);
+        const trainerIdRaw = section0.getU32(0x000A);
+        this.trainerId = trainerIdRaw & 0xFFFF;
+        this.secretId = (trainerIdRaw >>> 16) & 0xFFFF;
+
+        this.playTimeHours = section0.getU16(0x000E);
+        this.playTimeMinutes = section0.getByte(0x0010);
+        this.playTimeSeconds = section0.getByte(0x0011);
+        this.playTimeFrames = section0.getByte(0x0012);
+
+        this.securityKey = section0.getU32(0x0AF8) >>> 0;
+
+        this.money = 0;
+        if (section1) {
+            const encryptedMoney = section1.getU32(0x0290) >>> 0;
+            this.money = (encryptedMoney ^ this.securityKey) >>> 0;
+        }
 
         return true;
     }
@@ -49,6 +63,10 @@ export default class TrainerInfo {
         return this.secretId;
     }
 
+    getMoney() {
+        return this.money;
+    }
+
     getPlayTimeString() {
         const hh = String(this.playTimeHours).padStart(2, "0");
         const mm = String(this.playTimeMinutes).padStart(2, "0");
@@ -60,4 +78,8 @@ export default class TrainerInfo {
     getPlayTimeFrames() {
         return this.playTimeFrames;
     }
-        }
+
+    getSecurityKey() {
+        return this.securityKey;
+    }
+    }

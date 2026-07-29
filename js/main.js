@@ -1,5 +1,6 @@
 import SaveFile from "./SaveFile.js";
 import GbaSave from "./GbaSave.js";
+import TrainerInfo from "./TrainerInfo.js";
 
 const input = document.getElementById("saveInput");
 const status = document.getElementById("status");
@@ -22,10 +23,12 @@ input.addEventListener("change", async (event) => {
         const gba = new GbaSave(save);
 
         if (!gba.load()) {
-
-            throw new Error("Falha ao carregar o save.");
-
+            throw new Error("Falha ao carregar o GbaSave.");
         }
+
+        const trainer = new TrainerInfo();
+
+        trainer.load(gba);
 
         status.innerHTML = `
 
@@ -45,6 +48,12 @@ input.addEventListener("change", async (event) => {
                     : "Slot B"
             }</p>
 
+            <hr>
+
+            <h3>Trainer</h3>
+
+            <p>Em desenvolvimento...</p>
+
         `;
 
         console.clear();
@@ -58,26 +67,6 @@ input.addEventListener("change", async (event) => {
         console.log("Sections:", gba.getSectionCount());
 
         console.log("Slot ativo:", gba.getActiveSlot());
-
-        gba.getSections().forEach(section => {
-
-            console.log({
-
-                index: section.index,
-
-                offset: section.offset,
-
-                id: section.id,
-
-                checksum: section.checksum,
-
-                signature: section.signature,
-
-                saveIndex: section.saveIndex
-
-            });
-
-        });
 
     }
     catch (error) {

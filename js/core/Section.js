@@ -1,8 +1,7 @@
-// js/core/Section.js
 export default class Section {
 
-    static DATA_SIZE = 0x0FF4; // 4084 bytes antes do footer
-    static SECTION_SIZE = 0x1000; // 4096 bytes total
+    static DATA_SIZE = 0x0FF4;
+    static SECTION_SIZE = 0x1000;
     static SIGNATURE = 0x08012025;
 
     static CHECKSUM_LENGTHS = {
@@ -118,4 +117,4 @@ export default class Section {
         ) >>> 0;
     }
 
-}
+            }

@@ -1,34 +1,45 @@
 *{
+
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
+
 }
 
 body{
 
-    background:#1b1d26;
+    background:#141824;
+
     color:white;
 
-}
-
-.top{
-
-    background:#20232d;
+    min-height:100vh;
 
     padding:25px;
 
+}
+
+header{
+
     text-align:center;
 
-    box-shadow:0 5px 15px rgba(0,0,0,.35);
+    margin-bottom:30px;
 
 }
 
-.top h1{
-
-    font-size:52px;
+header h1{
 
     color:#FFD93D;
+
+    font-size:42px;
+
+}
+
+header p{
+
+    color:#bfc7d5;
+
+    margin-top:8px;
 
 }
 
@@ -40,37 +51,51 @@ body{
 
     gap:15px;
 
-    padding:20px;
+    margin-bottom:25px;
 
 }
 
 .menu button{
 
-    background:#2b3040;
-
-    color:white;
+    background:#21283a;
 
     border:none;
 
-    border-radius:18px;
+    border-radius:20px;
 
-    height:90px;
+    color:white;
 
-    font-size:22px;
-
-    font-weight:bold;
+    padding:20px;
 
     cursor:pointer;
 
     transition:.2s;
 
-    box-shadow:0 6px 15px rgba(0,0,0,.25);
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    font-size:34px;
+
+}
+
+.menu button span{
+
+    font-size:16px;
+
+    font-weight:bold;
 
 }
 
 .menu button:hover{
 
-    background:#3b82f6;
+    background:#3478f6;
 
     transform:translateY(-4px);
 
@@ -78,33 +103,39 @@ body{
 
 .card{
 
-    margin:20px;
-
-    padding:25px;
-
-    background:#2b3040;
+    background:#21283a;
 
     border-radius:25px;
 
-    box-shadow:0 8px 25px rgba(0,0,0,.35);
+    padding:25px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.30);
 
 }
 
-input[type=file]{
+.upload{
 
-    width:100%;
+    display:block;
 
-    padding:14px;
+    background:#3478f6;
 
-    margin-bottom:20px;
+    padding:15px;
+
+    text-align:center;
 
     border-radius:15px;
 
-    background:#1b1d26;
+    font-weight:bold;
 
-    color:white;
+    cursor:pointer;
 
-    border:none;
+    margin-bottom:25px;
+
+}
+
+.upload input{
+
+    display:none;
 
 }
 
@@ -118,39 +149,9 @@ input[type=file]{
 
 #status p{
 
-    margin:10px 0;
-
-    font-size:18px;
-
-}
-
-.info{
-
-    margin-top:20px;
-
-    padding-top:20px;
-
-    border-top:2px solid rgba(255,255,255,.15);
-
-}
-
-.info p{
-
     margin:8px 0;
 
-}
-
-::-webkit-scrollbar{
-
-    width:8px;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-    background:#3b82f6;
-
-    border-radius:20px;
+    line-height:1.6;
 
 }
 
@@ -158,10 +159,16 @@ input[type=file]{
 
     body{
 
-        max-width:700px;
+        width:700px;
 
         margin:auto;
 
     }
 
-        }
+    .menu{
+
+        grid-template-columns:repeat(3,1fr);
+
+    }
+
+}
